@@ -18,7 +18,6 @@ gen_protoc_go:
 grpcurl_test:
     grpcurl -plaintext -d '{"id": 2}' localhost:8080 PersonService/GetPerson
 
-
 # Build the Swift client
 swift-build:
     cd client/swift && swift build
@@ -26,6 +25,16 @@ swift-build:
 # Build the Go server
 go-build:
     cd backend/go && go build -o ../../server main.go
+
+# Run the Go server
+run-server:
+    just go-build
+    ./server
+
+# Run the Swift client
+run-client:
+    just swift-build
+    ./client/swift/.build/arm64-apple-macosx/debug/PersonGRPCClient
 
 # # Generate Go protobuf stubs
 # go-proto-gen:

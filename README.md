@@ -22,17 +22,17 @@ just gen_protoc_swift  # Generate Swift stubs
 
 ### Build & Run
 ```bash
-# Build Go server
-just go-build
-
-# Build Swift client
-just swift-build
-
 # Start Go server (in one terminal)
-./server
+just run-server
 
 # Run Swift client (in another terminal)
-./client/swift/.build/arm64-apple-macosx/debug/PersonGRPCClient
+just run-client
+```
+
+### Manual Build (optional)
+```bash
+just go-build      # Build Go server
+just swift-build   # Build Swift client
 ```
 
 ## 🎯 Features
